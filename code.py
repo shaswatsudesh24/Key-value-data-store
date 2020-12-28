@@ -1,12 +1,9 @@
 import threading 
-#this is for python 3.0 and above. use import thread for python2.0 versions
 from threading import*
 import time
 
 d={} #'d' is the dictionary in which we store data
 
-#for create operation 
-#use syntax "create(key_name,value,timeout_value)" timeout is optional you can continue by passing two arguments without timeout
 
 def create(key,value,timeout=0):
     if key in d:
@@ -21,12 +18,11 @@ def create(key,value,timeout=0):
                 if len(key)<=32: #constraints for input key_name capped at 32chars
                     d[key]=l
             else:
-                print("error: Memory limit exceeded!! ")#error message2
+                print("error: Memory limit exceeded!! ")
         else:
             print("error: Invalind key_name!! key_name must contain only alphabets and no special characters or numbers")#error message3
 
-#for read operation
-#use syntax "read(key_name)"
+
             
 def read(key):
     if key not in d:
@@ -61,7 +57,6 @@ def delete(key):
             del d[key]
             print("key is successfully deleted")
 
-#I have an additional operation of modify in order to change the value of key before its expiry time if provided
 
 #for modify operation 
 #use syntax "modify(key_name,new_value)"
